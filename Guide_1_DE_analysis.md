@@ -207,7 +207,7 @@ plotMA(res.shk, ylim=c(-3,3))
 # I. Clean and save results table
 
 ```{r}
-# 1. Sort by sdj.p
+# 1. Sort results table by sdj.p
 res.shk.sorted <- res.shk[order(res.shk$padj), ]
 
 # 2. Select genes with  -1 <= Log2FC >= 1
