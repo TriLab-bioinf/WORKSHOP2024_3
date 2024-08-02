@@ -1,4 +1,5 @@
-# Guide 1: Differential gene expression analysis with R
+# Guide 1: Basic differential gene expression analysis
+## Comparison between two groups (e.g. Case vs Control ; Female vs Male ; Mutant vs WT)
 
 In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_1.Rmd`.
 
@@ -8,12 +9,14 @@ Within the new area that appeared (chunk) as shown below, type the code from poi
 
 ![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/chuhk.png)
 
-# A. Load libraries
 
-Load required R packages
+![image](https://github.com/user-attachments/assets/887a2415-fcdb-43ae-a902-d68c6fb66b1d)
 
-```{r Step_1, message=FALSE, warning=FALSE}
+![image](https://github.com/user-attachments/assets/94d0390b-a2cc-4ecc-8b3d-cd47a6f276d3)
 
+# A. Load required R packages
+
+```{r}
 pacman::p_load(BiocManager, DESeq2, readxl, tidyverse, pheatmap, ashr)
 ```
 
