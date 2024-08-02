@@ -90,14 +90,19 @@ dim(counts.fil)
 ## 2. Optional: Filter genes based on their standard deviation across samples
 
 ```{r}
+# Calculate Standard Deviations for each gene across all samples
+gene.sd <- rowSds(as.matrix(counts.fil)
 
-hist(rowSds(as.matrix(counts.fil)), breaks = 100000, xlim = c(0,50))
+# Plot histogram of Std Dev:
+hist(gene.sd, breaks = 100000, xlim = c(0,50))
 
-summary(rowSds(as.matrix(counts.fil)) > 10)
+summary(gene.sd > 10)
 
-keep <- rowSds(as.matrix(counts.fil)) > 10
-
+# Filter genes
+keep <- gene.sd > 10
 counts.fil <- counts.fil[keep,]
+
+# Print out new dimension of counts.fil dataframe
 dim(counts.fil)
 
 ```
@@ -123,35 +128,11 @@ dds.vst <- vst(dds, blind=TRUE)
 # Method 1: ---------------------------------
 # easy
 
-DESeq2::plotPCA(dds.vst, 
-              intgroup = c("Treatment"),
-              ntop = 500,
-              returnData = FALSE,
-              pcsToUse = 1:2) 
-
-# Method 2: : ---------------------------------
-# more customizable
-
-# 1. Compute PCA 
-pca <- prcomp(t(assay(dds.vst)))
-
-# 2. Compute contribution of each component to the total variance
-percentVar <- pca$sdev^2 / sum( pca$sdev^2)
-pc1 <- round(percentVar*100, digits = 1)[1]
-pc2 <- round(percentVar*100, digits = 1)[2]
-
-# 3. assembly the data for the plot
-pca.df <- data.frame(PC1=pca$x[,"PC1"], 
-                   PC2=pca$x[,"PC2"], 
-                   Treatment=dds.vst@colData$Treatment,
-                   Time_id=dds.vst@colData$Time_id
-                   )
-
-# 4. Generate plot
-pca.p <- ggplot(data=pca.df, aes(x=PC1, y=PC2, color=Treatment, shape=Time_id)) + 
-    geom_point(size=3) + 
-    xlab(paste0("PC1:",pc1,"% variance")) + 
-    ylab(paste0("PC2:",pc2,"% variance")) 
+plotPCA(dds.vst, 
+        intgroup = c("Treatment"),
+        ntop = 500,
+        returnData = FALSE,
+        pcsToUse = 1:2) 
 
 # 5. Save PCA plot
 ggsave(filename = "pca.pdf", plot = pca.p)
