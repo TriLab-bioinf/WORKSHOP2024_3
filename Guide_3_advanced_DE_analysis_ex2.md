@@ -58,10 +58,14 @@ summary(metadata)
 ## 1. Filter genes based on read counts per sample
 
 ```{r}
-
+# Print out dimension of the counts.raw dataframe 
 dim(counts.raw)
+
+# Filter genes based on minimum number of reads per sample and the minimum group size
 keep <- rowCounts(counts.raw > 10) > 4
 counts.fil <- counts.raw[keep,]
+
+# Print out dimension of the counts.fil dataframe
 dim(counts.fil)
 ```
 
