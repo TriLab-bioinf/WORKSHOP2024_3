@@ -1,9 +1,5 @@
----
-title: 'WORKSHOP2024_3: Paired DE analysis'
-output:
-  html_document:
-    df_print: paged
----
+
+# Guide 2: Paired DE analysis and interaction
 
 # A. Load libraries
 
