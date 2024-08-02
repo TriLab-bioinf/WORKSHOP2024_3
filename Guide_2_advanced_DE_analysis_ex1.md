@@ -1,6 +1,12 @@
 
 # Guide 2: Paired DE analysis and interaction
 
+## Two treatment levels (Before and After) with two genotypes (Geno_1 and Geno_2). Experimental design = paired.
+
+
+![image](https://github.com/user-attachments/assets/69056272-5c9c-4010-a227-9c62ac5373a3)
+
+
 In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_2.Rmd`.
 
 # A. Load libraries
@@ -25,7 +31,6 @@ counts.raw
 # C. Load metadata
 
 ```{r}
-
 # Load metadata and clean sample_ids
 metadata <- read.delim(file = "data/meta_ex1_2t.txt", 
                          header = T, sep = "\t",row.names = 1)
@@ -59,7 +64,6 @@ summary(metadata)
 ## 1. Filter genes based on read counts per sample
 
 ```{r}
-
 dim(counts.raw)
 keep <- rowCounts(counts.raw > 10) > 4
 counts.fil <- counts.raw[keep,]
