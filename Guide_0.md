@@ -15,3 +15,4 @@ renv::restore(confirm = FALSE)
 
 renv::snapshot()
 ```
+Go to `Guide_1_DE_analysis.md`
