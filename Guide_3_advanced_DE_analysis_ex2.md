@@ -3,7 +3,9 @@
 
 ![image](https://github.com/user-attachments/assets/71a023e3-6661-4efe-a9d0-38315eec8bf2)
 
-In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_3.Rmd`.
+Let's start the analysis by opening the **Guide_3.Rmd notebook template** in Rstudio:
+
+In Rstudio go to `File > Open File` and select the file `Guide_3.Rmd`.
 
 # Experimental design:
 
