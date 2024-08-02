@@ -72,10 +72,18 @@ metadata$Sbj_id <- factor(metadata$Sbj_id)
 ## 1. Filter genes based on read counts per sample
 
 ```{r}
-
+# Print out dimension of the counts.raw dataframe 
 dim(counts.raw)
-keep <- rowCounts(counts.raw > 10) > 4
+
+# For each gene, set the minimum number of reads per sample and the minimum group size
+min_num_reads_per_sample <- 10
+min_group_size <- 6
+
+# Filter genes
+keep <- rowCounts(counts.raw > min_num_reads_per_sample) > min_group_size
 counts.fil <- counts.raw[keep,]
+
+# Print out dimension of the counts.fil dataframe
 dim(counts.fil)
 ```
 
