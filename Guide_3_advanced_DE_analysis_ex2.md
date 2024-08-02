@@ -1,5 +1,7 @@
 # Guide 3: Longitudinal differential expression analysis
 
+In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_3.Rmd`.
+
 # Experimental design:
 
 ![Experimental design.](Figures/Long_study.png){width="500"}
