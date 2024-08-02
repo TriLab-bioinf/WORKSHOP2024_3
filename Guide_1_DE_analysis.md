@@ -191,13 +191,16 @@ res.3 <- results(dds, contrast=list("Treatment_Drug_vs_Control"))
 
 # H. Log2FC Shrinkage
 
-To control for dependency of Log2FC with gene expression level.
+Distribution of Log2FC values usually is directly correlated with gene expression levels. Therefore, it is advisable to correct Log2FC using the DESeq2 function `lfcShrink()`.
 
 ```{r message=FALSE, warning=FALSE}
+# 1. Plot Log2FC as a function of mean normalized gene expression
 plotMA(res.2, ylim=c(-3,3))
 
+# 2. Calculate DE results, adjusting Log2FC based on gene expression
 res.shk <- lfcShrink(dds, contrast = c("Treatment", "Drug", "Control"), type = "ashr")
 
+# 3. Plot adjusted Log2FC as a function of mean normalized gene expression
 plotMA(res.shk, ylim=c(-3,3))
 ```
 
