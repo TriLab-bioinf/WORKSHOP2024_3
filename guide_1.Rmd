@@ -1,0 +1,175 @@
+---
+title: "Guide 1: Basic differential gene expression analysis"
+output: html_notebook
+---
+
+# A. Load required R packages
+
+```{r}
+# Load required R packages
+
+```
+
+# B. Load read counts table
+
+```{r}
+# 1. Load raw read counts
+
+```
+
+# C. Load metadata
+
+```{r}
+# 1. Load metadata and clean sample_ids
+
+                         
+# 2. Ensure samples on read-counts table columns match order of samples in metadata table rows
+
+
+# 3. Include total read counts in metadata
+
+
+# 4. Convert categorical variables in metadata to factors
+
+```
+
+# D. Clean gene expression data
+
+## 1. Filter genes based on read counts per sample
+
+```{r}
+# Print out dimension of the counts.raw dataframe 
+
+
+# For each gene, set the minimum number of reads per sample and the minimum group size
+
+
+# Filter genes
+
+
+# Print out dimension of the counts.fil dataframe
+
+
+```
+
+## 2. Optional: Filter genes based on their standard deviation across samples
+
+```{r}
+# 1. Calculate Standard Deviations for each gene across all samples
+
+
+# 2. Plot histogram of Std Dev:
+
+
+# 3. Count number of genes about the cutoff (10)
+
+
+# 4. Filter genes using the desired cutoff (10)
+
+
+# 5. Print out new dimension of counts.fil dataframe
+
+
+```
+
+# E. Generate DESeq object
+
+```{r message=FALSE, warning=FALSE}
+# 1. Create DESeq object
+
+
+# 2. Estimate library size and read counts dispersion
+
+```
+
+# F. Exploratory analysis
+
+## 1. Principal component analysis
+
+```{r}
+# 1. variance stabilizing transformation of counts (optinally you can use log transformation with rlog)
+
+
+# 2. Generate PCA plot
+
+
+# 3. Save PCA plot
+
+
+# 4. Print out PCA plot
+
+```
+
+## 2. Heatmap
+
+```{r}
+# 1. Normalize counts using Variance Stabilizing Transformation
+
+
+# 3. Calculate distances between samples
+
+
+# 4. Calculate inter-sample distances
+
+
+# 5. Add Treatment levels to sample names
+
+
+# 6. Generate heatmap plot
+
+
+# 7. Save heatmap plot
+
+
+```
+
+# G. Run differential expression
+
+We will contrast *`Drug`* vs *`Control`* factors of the *`Treatment`* variable.
+
+```{r message=FALSE, warning=FALSE}
+# 1. Add design formula
+
+
+# 2. Recompute dispersions
+
+
+# 3. Print out coeficients
+
+
+# 4. Get DE results ------------------------------------------------
+
+# 4.1 Method 1: Factor pairwise comparison 
+
+
+# 4.2 Method 2: Using coeficients
+
+```
+
+# H. Log2FC Shrinkage
+
+Distribution of Log2FC values usually is directly correlated with gene expression levels. Therefore, it is advisable to correct Log2FC using the DESeq2 function lfcShrink().
+
+```{r message=FALSE, warning=FALSE}
+# 1. Plot Log2FC as a function of mean normalized gene expression
+
+
+# 2. Calculate DE results, adjusting Log2FC based on gene expression
+
+
+# 3. Plot adjusted Log2FC as a function of mean normalized gene expression
+
+```
+
+# I. Clean and save results table
+
+```{r}
+# 1. Sort results table by sdj.p
+
+
+# 2. Select genes with  -1 <= Log2FC >= 1
+
+
+# 3. Save results to a file
+
+```

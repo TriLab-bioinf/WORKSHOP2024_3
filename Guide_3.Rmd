@@ -1,0 +1,192 @@
+---
+title: "Guide 3: Longitudinal differential expression analysis"
+output: html_notebook
+---
+
+# A. Load libraries
+
+Load required R packages
+
+```{r}
+
+```
+
+# B. Load read counts table
+
+```{r}
+# Load raw read counts
+
+```
+
+# C. Load metadata
+
+```{r}
+
+# 1. Load metadata and clean sample_ids
+
+# 2. Ensure samples on read-counts table columns match order of samples in metadata table rows
+
+
+# 3. Include total read counts in metadata
+
+# 4. Convert categorical variables to factors
+
+
+```
+
+# D. Clean gene expression data
+
+## 1. Filter genes based on read counts per sample
+
+```{r}
+
+# Print out dimension of the counts.raw dataframe 
+
+
+# Filter genes based on minimum number of reads per sample and the minimum group size
+
+# Print out dimension of the counts.fil dataframe
+
+```
+
+# E. Generate DESeq object
+
+```{r message=FALSE, warning=FALSE}
+# 1. Create DESeq object
+
+
+# 2. Estimate library size and read counts dispersion
+
+
+```
+
+# F. Exploratory analysis
+
+## 1. Principal component analysis
+
+```{r}
+# 1. variance stabilizing transformation of counts (optinally you can use log transformation with rlog)
+
+
+# 2. Compute PCA 
+
+
+# 3. Compute contribution of each component to the total variance
+
+
+# 4. assembly the data for the plot
+
+
+
+# 5. Generate plot
+
+
+
+# 6. Save PCA plot
+
+
+```
+
+# G. Run differential expression with LRT
+
+We will analyze the impact of Drug A and B overtime. There are two possible approaches:
+
+A.  A pairwise comparisons between each time point and the baseline (M0). A kind of two-sample t-test comparisons.
+
+B.  A Likelihood Radio Test approach (LRT), where you look at genes that are differentially expressed in at least one time point. A kind of anova test.
+
+The LRT is comparing the full model to the reduced model to identify significant genes. **The p-values are determined solely by the difference in deviance between the ‘full’ and ‘reduced’ model formula (not log2 fold changes)**. Essentially the LRT test is testing whether the term(s) removed in the ‘reduced’ model explains a significant amount of variation in the data?
+
+Generally, this test will result in a larger number of genes than the individual pair-wise comparisons. While the LRT is a test of significance for differences of any level of the factor, one should not expect it to be exactly equal to the union of sets of genes using Wald tests (although we do expect a majority overlap).
+
+## Question 1: What genes change over time, independently of treatment?
+
+Here the main effect is `Time_id`.
+
+Because samples are paired, we need to control for subjects with `Sbj_id`
+
+```{r message=FALSE, warning=FALSE}
+
+# 1. Likelihood Ratio Test (LRT) ---------------------------------------
+
+# 1.a Add design formula: After vs Before, within subjects
+
+
+# 1.b Recompute dispersions
+
+
+
+# 1.c Get results
+
+
+# 1.d summarize results
+
+
+
+```
+
+```{r}
+
+# Plot DE example for gene ""ENSG00000227232""
+
+
+
+```
+
+## Question 2: What genes change differently over time, across treatments?
+
+Here, the main effect is the interaction between `Treatment` and `Time_id`.
+
+Along time, we want to compare samples within Treatments and within each treatment, within subjects.
+
+```{r message=FALSE, warning=FALSE}
+
+# 2. Likelihood Ratio Test (LRT) ---------------------------------------
+
+# 2.a Add design formula: After vs Before, within subjects
+
+
+# 2.b Recompute dispersions
+
+
+# 2.c Get results
+
+
+# 2.d summarize results
+
+
+```
+
+Gene examples:
+
+```{r}
+
+# Plot DE example for gene "ENSG00000008130"
+
+
+
+# Plot DE example for gene "ENSG00000078369"
+
+
+
+```
+
+# H. Find gene clusters
+
+```{r message=FALSE, warning=FALSE}
+# 1. Fetch significant interacting gene ids
+
+
+# 2. Subset dds.vst to contain significant genes only
+
+
+# Identify gene clusters across time points and treatments
+
+
+```
+
+```{r}
+
+# Extract genes ids from cluster 3
+
+```
