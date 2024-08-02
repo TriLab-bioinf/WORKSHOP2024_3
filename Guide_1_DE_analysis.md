@@ -124,17 +124,18 @@ dds <- DESeq(dds)
 # 1. variance stabilizing transformation of counts (optinally you can use log transformation with rlog)
 dds.vst <- vst(dds, blind=TRUE)
 
-# Method 1: ---------------------------------
-# easy
-
-plotPCA(dds.vst, 
+# 2. Generate PCA plot
+pca.p <- plotPCA(dds.vst, 
         intgroup = c("Treatment"),
         ntop = 500,
         returnData = FALSE,
         pcsToUse = 1:2) 
 
-# 5. Save PCA plot
+# 3. Save PCA plot
 ggsave(filename = "pca.pdf", plot = pca.p)
+
+# 4. Print out PCA plot
+pca.p
 
 ```
 
