@@ -12,17 +12,9 @@ b. A **metadata table** containing `samples` as rows and `variables` as columns:
 
 **Note:** `sample-columns` in the `read_counts` table have to be in the same order as `sample-rows` in the `metadata` table. The order can be fixed using R.
 
-Let's start the analysis by opening a new **R notebook** in Rstudio:
+Let's start the analysis by opening the **Guide_1.Rmd notebook template** in Rstudio:
 
-In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_1.Rmd`.
-
-Go to `Code > Insert Chunck`
-
-Within the new area that appeared, **named chunk**, you can enter your R code. Above or below the chunks you can add regular text to comment your code or conclussions.
-
-![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/chuhk.png)
-
-Now let's start processing the data.
+In Rstudio go to `File > Open File` and select the file `Guide_1.Rmd`.
 
 # A. Load required R packages
 
