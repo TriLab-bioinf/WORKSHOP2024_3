@@ -80,19 +80,20 @@ dim(counts.fil)
 ## 2. Optional: Filter genes based on their standard deviation across samples
 
 ```{r}
-# Calculate Standard Deviations for each gene across all samples
+# 1. Calculate Standard Deviations for each gene across all samples
 gene.sd <- rowSds(as.matrix(counts.fil))
 
-# Plot histogram of Std Dev:
+# 2. Plot histogram of Std Dev:
 hist(gene.sd, breaks = 100000, xlim = c(0,50))
 
+# 3. Count number of genes about the cutoff (10)
 summary(gene.sd > 10)
 
-# Filter genes
+# 4. Filter genes using the desired cutoff (10)
 keep <- gene.sd > 10
 counts.fil <- counts.fil[keep,]
 
-# Print out new dimension of counts.fil dataframe
+# 5. Print out new dimension of counts.fil dataframe
 dim(counts.fil)
 
 ```
@@ -100,10 +101,12 @@ dim(counts.fil)
 # E. Generate DESeq object
 
 ```{r message=FALSE, warning=FALSE}
+# 1. Create DESeq object
 dds <- DESeqDataSetFromMatrix(countData = counts.fil,
                               colData = metadata,
                               design = ~1) 
 
+# 2. Estimate library size and read counts dispersion
 dds <- DESeq(dds)
 ```
 
