@@ -1,6 +1,17 @@
 # Guide 1: Basic differential gene expression analysis
 ## Comparison between two groups (e.g. Case vs Control ; Female vs Male ; Mutant vs WT)
 
+For any differential expression analysis we will need to prepare and load into R the following two files:
+a. A **read counts per gene** table, containing `genes` as rows and `samples` as columns:
+
+![image](https://github.com/user-attachments/assets/94d0390b-a2cc-4ecc-8b3d-cd47a6f276d3)
+
+b. A **metadata table** containing `samples` as rows and `variables` as columns:
+
+![image](https://github.com/user-attachments/assets/887a2415-fcdb-43ae-a902-d68c6fb66b1d)
+
+Let's start a new **R notebook** in Rstudio:
+
 In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_1.Rmd`.
 
 Go to `Code > Insert Chunck`
@@ -8,11 +19,6 @@ Go to `Code > Insert Chunck`
 Within the new area that appeared (chunk) as shown below, type the code from point A and run it by clicking on the green triangle within the chunk.
 
 ![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/chuhk.png)
-
-
-![image](https://github.com/user-attachments/assets/887a2415-fcdb-43ae-a902-d68c6fb66b1d)
-
-![image](https://github.com/user-attachments/assets/94d0390b-a2cc-4ecc-8b3d-cd47a6f276d3)
 
 # A. Load required R packages
 
