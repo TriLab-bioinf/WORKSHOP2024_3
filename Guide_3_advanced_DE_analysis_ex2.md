@@ -1,4 +1,7 @@
 # Guide 3: Longitudinal differential expression analysis
+## Two treatment levels (Drug_A and Drug_B) with six time points (M0, M2, M4, M7, M10, M13). Experimental design = Longitudinal (paired).
+
+![image](https://github.com/user-attachments/assets/71a023e3-6661-4efe-a9d0-38315eec8bf2)
 
 In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_3.Rmd`.
 
