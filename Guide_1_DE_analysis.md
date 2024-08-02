@@ -6,7 +6,7 @@ Go to `Code > Insert Chunck`
 
 Within the new area that appeared 
 
-![]()
+![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/chuhk.png)
 
 # A. Load libraries
 
