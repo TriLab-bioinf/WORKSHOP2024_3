@@ -157,7 +157,7 @@ summary(res.lrt, alpha=0.0001)
 
 ```{r}
 
-# Plot DE gene example
+# Plot DE example for gene "ENSG00000227232"
 gene <- "ENSG00000227232"
 plotCounts(dds = dds.lrt, 
                gene = gene,
@@ -196,8 +196,7 @@ summary(res.inter.lrt, alpha=0.0001)
 Gene examples:
 
 ```{r}
-
-# Plot DE gene example 1
+# Plot DE example for gene "ENSG00000008130"
 gene <- "ENSG00000008130"
 plotCounts(dds = dds.inter.lrt, 
                gene = gene,
@@ -205,30 +204,28 @@ plotCounts(dds = dds.inter.lrt,
                returnData = FALSE,
                col=dds.inter.lrt@colData$Treatment)
 
-# Plot DE gene example 2
+# Plot DE example for gene "ENSG00000078369"
 gene2 <- "ENSG00000078369"
 plotCounts(dds = dds.inter.lrt, 
                gene = gene2,
                intgroup = c("Time_id"), 
                returnData = FALSE,
                col=dds.inter.lrt@colData$Treatment)
-
 ```
 
 # H. Find gene clusters
 
 ```{r message=FALSE, warning=FALSE}
-# Fetch significant gene ids
+# 1. Fetch significant interacting gene ids
 res.inter.lrt.sig.ids <- rownames(subset(res.inter.lrt, padj <= 0.0001))
 
-# Subset dds.vst to contain significant genes only and split by Treatment
+# 2. Subset dds.vst to contain significant genes only
 dds.inter.lrt.sig.vst <- dds.vst[res.inter.lrt.sig.ids,]
 
-# Identify gene clusters across time points
+# Identify gene clusters across time points and treatments
 clusters_lrt <- degPatterns(ma = as.data.frame(assay(dds.inter.lrt.sig.vst)), 
                             metadata = dds.inter.lrt.sig.vst@colData, 
                             time = "Time_id", col="Treatment")
-
 ```
 
 ```{r}
