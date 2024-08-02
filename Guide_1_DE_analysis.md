@@ -64,7 +64,6 @@ metadata
 
 # Convert categorical variables to factors
 metadata$Treatment <- factor(metadata$Treatment)
-metadata$Sbj_id <- factor(metadata$Sbj_id)
 ```
 
 # D. Clean gene expression data
