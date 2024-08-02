@@ -2,7 +2,7 @@
 
 ## 1. Download required documents
 
-Go to 
+Download the workshop's datasets by clicking [here](https://github.com/TriLab-bioinf/WORKSHOP2024_3/archive/refs/heads/main.zip).
 
 renv::activate()
 
