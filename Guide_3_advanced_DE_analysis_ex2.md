@@ -72,10 +72,12 @@ dim(counts.fil)
 # E. Generate DESeq object
 
 ```{r message=FALSE, warning=FALSE}
+# 1. Create DESeq object
 dds <- DESeqDataSetFromMatrix(countData = counts.fil,
                               colData = metadata,
                               design = ~1) 
 
+# 2. Estimate library size and read counts dispersion
 dds <- DESeq(dds)
 ```
 
