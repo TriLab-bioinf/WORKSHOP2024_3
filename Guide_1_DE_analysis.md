@@ -44,25 +44,16 @@ counts.raw
 
 ```{r}
 
-# Load metadata and clean sample_ids
-metadata <- read.delim(file = "data/metadata_M4.txt", 
-                         header = T, sep = "\t",row.names = 1)
+# 1. Load metadata and clean sample_ids
+metadata <- read.delim(file = "data/metadata_M4.txt", header = T, sep = "\t",row.names = 1)
+                         
+# 2. Ensure samples on read-counts table columns match order of samples in metadata table rows
+counts.raw <- select(counts.raw, rownames(metadata))
 
-# Check metadata row names == counts column names
-same_order <- all(rownames(metadata) == colnames(counts.raw))
-
-# Sort counts columns to match order in metadata rows
-if(!same_order){
-  print("Sorting columns in counts.all")
-  counts.raw <- select(counts.raw, rownames(metadata))
-}
-
-# Include total read counts in metadata
+# 3. Include total read counts in metadata
 metadata$read_counts <- colSums(counts.raw, na.rm = TRUE)
 
-metadata
-
-# Convert categorical variables to factors
+# 4. Convert categorical variables in metadata to factors
 metadata$Treatment <- factor(metadata$Treatment)
 ```
 
