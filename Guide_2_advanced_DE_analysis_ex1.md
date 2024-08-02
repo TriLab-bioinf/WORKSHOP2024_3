@@ -7,7 +7,9 @@
 ![image](https://github.com/user-attachments/assets/69056272-5c9c-4010-a227-9c62ac5373a3)
 
 
-In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_2.Rmd`.
+In Rstudio open the **Guide_2.Rmd notebook template** in Rstudio:
+
+In Rstudio go to `File > Open File` and select the file `Guide_2.Rmd`.
 
 # A. Load libraries
 
