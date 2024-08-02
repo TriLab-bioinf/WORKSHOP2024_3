@@ -187,7 +187,7 @@ plotCounts(dds = dds,
                col=c("red","blue")[dds@colData$Genotype])
 ```
 
-Now let's find out genes that are diferentially expressed in Genotype `Geno_1`.
+**Question 2: What genes are differentially expressed in Genotype `Geno_1`?**
 
 ```{r message=FALSE, warning=FALSE}
 # 1. Print out coeficients
@@ -209,7 +209,7 @@ plotCounts(dds = dds,
                col=c("red","blue")[dds@colData$Genotype])
 ```
 
-What genes are diferentially expressed across Treatmeent in Genotype `Geno_2`.
+**Question 3: What genes are differentially expressed across Treatment in Genotype `Geno_2`?**
 
 ```{r message=FALSE, warning=FALSE}
 # 1. Print out coeficients
