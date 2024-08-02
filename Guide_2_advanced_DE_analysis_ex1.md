@@ -31,30 +31,26 @@ counts.raw
 # C. Load metadata
 
 ```{r}
-# Load metadata and clean sample_ids
+# 1. Load metadata and clean sample_ids
 metadata <- read.delim(file = "data/meta_ex1_2t.txt", 
                          header = T, sep = "\t",row.names = 1)
 
-# Check metadata row names == counts column names
-same_order <- all(rownames(metadata) == colnames(counts.raw))
+# 2. Ensure samples on read-counts table columns match order of samples in metadata table rows
+counts.raw <- select(counts.raw, rownames(metadata))
 
-# Sort counts columns to match order in metadata rows
-if(!same_order){
-  print("Sorting columns in counts.all")
-  counts.raw <- select(counts.raw, rownames(metadata))
-}
 
-# Include total read counts in metadata
+# 3. Include total read counts in metadata
 metadata$read_counts <- colSums(counts.raw, na.rm = TRUE)
 
 metadata
 
-# Convert categorical variables to factors
+# 4. Convert categorical variables to factors
 metadata$Genotype <- factor(metadata$Genotype)
 metadata$Sbj_id <- factor(metadata$Sbj_id)
 metadata$Treatment <- factor(metadata$Treatment, levels = c("Before","After"))
 metadata$Sbj_alt <- factor(metadata$Sbj_alt)
 
+# 5. Summarize metadata table
 summary(metadata)
 
 ```
