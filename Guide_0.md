@@ -1,3 +1,8 @@
+# Guide 0:
+
+## 1. Download required documents
+
+
 
 **A) Basic differential gene expression analysis:**
 
