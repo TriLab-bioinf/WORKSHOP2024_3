@@ -1,9 +1,4 @@
----
-title: 'WORKSHOP2024_3: Longitudinal DE analysis'
-output:
-  html_document:
-    df_print: paged
----
+# Guide 3: Longitudinal differential expression analysis
 
 # Experimental design:
 
