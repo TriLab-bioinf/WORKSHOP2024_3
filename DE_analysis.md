@@ -1,9 +1,4 @@
----
-title: 'WORKSHOP2024_3: Differential gene expression analysis with R'
-output:
-  html_document:
-    df_print: paged
----
+# 'WORKSHOP2024_3: Differential gene expression analysis with R'
 
 # A. Load libraries
 
