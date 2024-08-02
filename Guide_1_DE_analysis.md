@@ -91,7 +91,7 @@ dim(counts.fil)
 
 ```{r}
 # Calculate Standard Deviations for each gene across all samples
-gene.sd <- rowSds(as.matrix(counts.fil)
+gene.sd <- rowSds(as.matrix(counts.fil))
 
 # Plot histogram of Std Dev:
 hist(gene.sd, breaks = 100000, xlim = c(0,50))
