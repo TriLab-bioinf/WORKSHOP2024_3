@@ -187,25 +187,16 @@ plotCounts(dds = dds,
                col=c("red","blue")[dds@colData$Genotype])
 ```
 
-Now let's find out genes that are deferentially expressed in Genotype `Geno_1`.
+Now let's find out genes that are diferentially expressed in Genotype `Geno_1`.
 
 ```{r message=FALSE, warning=FALSE}
-# 1. Add design formula: After vs Before, within subjects
-#   Now the main effect is the interaction term (Genotype:Treatment) 
-#   that has to be at the end of the design formula.
-
-
-# 3. Print out coeficients
+# 1. Print out coeficients
 resultsNames(dds)
 
-# 4. Get DE results ------------------------------------------------
-
-# 4.2 Method 2: Using coeficients
-res.geno_1 <- lfcShrink(dds, contrast=c("Treatment","After","Before"), type = "ashr")
+# 2. Get DE results for genes are diferentially expressed across Treatments in Genotype Geno_1
 res.geno_1.coef <- lfcShrink(dds, contrast=list("Treatment_After_vs_Before"), type = "ashr")
+
 summary(res.geno_1, alpha=0.05)
-
-
 ```
 
 ```{r}
@@ -218,24 +209,16 @@ plotCounts(dds = dds,
                col=c("red","blue")[dds@colData$Genotype])
 ```
 
-What genes are deferentially expressed across Treatmeent in Genotype `Geno_2`.
+What genes are diferentially expressed across Treatmeent in Genotype `Geno_2`.
 
 ```{r message=FALSE, warning=FALSE}
-# 1. Add design formula: After vs Before, within subjects
-#   Now the main effect is the interaction term (Genotype:Treatment) 
-#   that has to be at the end of the design formula.
-
-
-# 3. Print out coeficients
+# 1. Print out coeficients
 resultsNames(dds)
 
-# 4. Get DE results ------------------------------------------------
-
-# 4.2 Method 2: Using coeficients
+# 2. Get DE results for genes are deferentially expressed across Treatment in Genotype Geno_2
 res.geno_2 <- lfcShrink(dds, contrast=list("Treatment_After_vs_Before", "GenotypeGeno_2.TreatmentAfter"), type = "ashr")
 
 summary(res.geno_2, alpha=0.05)
-
 
 ```
 
