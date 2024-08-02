@@ -91,27 +91,15 @@ dds <- DESeq(dds)
 # 1. variance stabilizing transformation of counts (optinally you can use log transformation with rlog)
 dds.vst <- vst(dds, blind=TRUE)
 
-# Method 1: ---------------------------------
-# easy
-
-DESeq2::plotPCA(dds.vst, 
-              intgroup = c("Time_id"),
-              ntop = 500,
-              returnData = FALSE,
-              pcsToUse = 1:2) 
-
-# Method 2: : ---------------------------------
-# more customizable
-
-# 1. Compute PCA 
+# 2. Compute PCA 
 pca <- prcomp(t(assay(dds.vst)))
 
-# 2. Compute contribution of each component to the total variance
+# 3. Compute contribution of each component to the total variance
 percentVar <- pca$sdev^2 / sum( pca$sdev^2)
 pc1 <- round(percentVar*100, digits = 1)[1]
 pc2 <- round(percentVar*100, digits = 1)[2]
 
-# 3. assembly the data for the plot
+# 4. assembly the data for the plot
 pca.df <- data.frame(PC1=pca$x[,"PC1"], 
                    PC2=pca$x[,"PC2"], 
                    Time_id=dds.vst@colData$Time_id,
@@ -119,17 +107,16 @@ pca.df <- data.frame(PC1=pca$x[,"PC1"],
                    Treatment=dds.vst@colData$Treatment
                    )
 
-# 4. Generate plot
+# 5. Generate plot
 pca.p <- ggplot(data=pca.df, aes(x=PC1, y=PC2, color=Time_id, shape=Treatment)) + 
     geom_point(size=3) + 
     xlab(paste0("PC1:",pc1,"% variance")) + 
     ylab(paste0("PC2:",pc2,"% variance")) 
 
-# 5. Save PCA plot
+# 6. Save PCA plot
 ggsave(filename = "pca.pdf", plot = pca.p)
 
 pca.p
-
 ```
 
 # G. Run differential expression with LRT
