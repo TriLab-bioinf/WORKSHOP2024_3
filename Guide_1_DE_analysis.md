@@ -1,5 +1,15 @@
 # Guide 1: Differential gene expression analysis with R
 
+In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_1.Rmd`.
+
+Go to `Code > Insert Chunck`
+
+Within the new area that appeared 
+
+"```{r}
+
+"```
+
 # A. Load libraries
 
 Load required R packages
