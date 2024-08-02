@@ -1,4 +1,4 @@
-# 'WORKSHOP2024_3: Differential gene expression analysis with R'
+# Guide 1: Differential gene expression analysis with R
 
 # A. Load libraries
 
