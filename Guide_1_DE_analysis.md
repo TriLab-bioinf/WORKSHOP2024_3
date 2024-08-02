@@ -6,9 +6,7 @@ Go to `Code > Insert Chunck`
 
 Within the new area that appeared 
 
-"```{r}
-
-"```
+![]()
 
 # A. Load libraries
 
