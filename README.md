@@ -15,20 +15,10 @@
 7. Exploratory analysis: PCA, correlation or dist analyses.
 8. Run DE analysis with `results()` function
 9. Interpret meaning of DE-table columns
-10. MA-plot to see dependency of Log2FC on gene expression
-11. Shrinkage
-12. Save results table into a file
+10. MA-plot to see dependency of Log2FC on gene expression (Shrinkage)
+11. Save results table into a file
 
 **B) Advanced DE analysis**
 
-1. Experimental design with 1 categorical variable with three levels
-2. Paired experimental design
-3. Paired experimental design with 2 categorical variables
-4. Longitudinal design (LRT) with one categorical variable
-
-**C) Convert gene accession numbers to gene symbols**
-
-1. Function biomart
-2. 
-
-
+1. Paired experimental design and interactions
+2. Longitudinal design (LRT) with one categorical variable
