@@ -142,24 +142,24 @@ pca.p
 ## 2. Heatmap
 
 ```{r}
-# 1. Normalize counts
+# 1. Normalize counts using Variance Stabilizing Transformation
 dds.vst <- vst(dds, blind=TRUE)
 
-# 2. Add new Sample_id column to metadata in vst object
-dds.vst$Sample_id <- as.factor(paste(dds.vst$Treatment, dds.vst$Time_id, dds.vst$Sbj_id, sep = "_"))
-                               
 # 3. Calculate distances between samples
 sampleDists <- dist(t(assay(dds.vst)))
 
-# 4. Plot inter-sample distances
+# 4. Calculate inter-sample distances
 sampleDist.mat <- as.matrix(sampleDists)
+
+# 5. Add Treatment levels to sample names
 rownames(sampleDist.mat) <- paste(rownames(sampleDist.mat), dds.vst$Treatment)
 
+# 6. Generate heatmap plot
 hm.all.p <- pheatmap(mat = sampleDist.mat,
                 clustering_distance_rows=sampleDists,
                 clustering_distance_cols=sampleDists)
 
-# 6. Save heatmap plot
+# 7. Save heatmap plot
 ggsave(filename = "heatmap.pdf", plot = hm.all.p)
 ```
 
