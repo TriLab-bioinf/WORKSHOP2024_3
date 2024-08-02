@@ -1,6 +1,8 @@
 
 # Guide 2: Paired DE analysis and interaction
 
+In Rstudio go to `File > New File > R Notebook`. A new notebook template will open. Delete all lines from line 6 to the end and save it as `guide_2.Rmd`.
+
 # A. Load libraries
 
 Load required R packages
