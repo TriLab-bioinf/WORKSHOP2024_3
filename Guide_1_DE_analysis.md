@@ -4,7 +4,7 @@ In Rstudio go to `File > New File > R Notebook`. A new notebook template will op
 
 Go to `Code > Insert Chunck`
 
-Within the new area that appeared 
+Within the new area that appeared (chunk) as shown below, type the code from point A and run it by clicking on the green triangle within the chunk.
 
 ![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/chuhk.png)
 
