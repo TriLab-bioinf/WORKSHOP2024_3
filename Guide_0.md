@@ -2,6 +2,13 @@
 
 ## 1. Download required documents
 
+Go to 
+
+renv::activate()
+
+renv::restore(confirm = FALSE)
+
+renv::snapshot()
 
 
 **A) Basic differential gene expression analysis:**
