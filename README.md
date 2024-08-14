@@ -18,7 +18,7 @@
 10. MA-plot to see dependency of Log2FC on gene expression (Shrinkage)
 11. Save results table into a file
 
-**B) Advanced DE analysis**
+**B) Advanced DE analysis (Guides 2 and 3):**
 
 1. Paired experimental design and interactions (Guide 2).
 2. Longitudinal design (LRT) with one categorical variable (Guide 3).
