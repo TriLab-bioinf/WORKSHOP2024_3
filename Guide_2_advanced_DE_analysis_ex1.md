@@ -144,7 +144,7 @@ summary(res.3, alpha=0.05)
 
 **Note:** Usually, sensitivity drops when a paired experiment is analyzed unpaired.
 
-# H. Looking at the effect of the genotype on how genes respond to treatment: Interactions
+# H. Impact of genotype on the gene response to treatment: Interactions
 
 Now the main effect (what we are interested in) is the interaction term (Genotype:Treatment), that has to be at the end of the design formula.
 
