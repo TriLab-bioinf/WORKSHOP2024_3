@@ -4,7 +4,7 @@
 
 ### Workshop outline
 
-**A) Basic differential gene expression analysis:**
+**A) Basic differential gene expression analysis (Guide 1):**
 
 1. How to load the input data into R
 2. Clean gene expression data
@@ -20,5 +20,5 @@
 
 **B) Advanced DE analysis**
 
-1. Paired experimental design and interactions
-2. Longitudinal design (LRT) with one categorical variable
+1. Paired experimental design and interactions (Guide 2).
+2. Longitudinal design (LRT) with one categorical variable (Guide 3).
