@@ -21,4 +21,4 @@
 **B) Advanced DE analysis (Guides 2 and 3):**
 
 1. Paired experimental design and interactions (Guide 2).
-2. Longitudinal design (LRT) with one categorical variable (Guide 3).
+2. Longitudinal design (LRT) with two categorical variables (Guide 3).
