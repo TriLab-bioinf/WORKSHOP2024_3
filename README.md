@@ -8,7 +8,7 @@
 
 1. How to load the input data into R
 2. Clean gene expression data
-3. Read counts normalization (TPM, FPKM/RPKM, CPM) -> use featureCounts?
+3. Read counts normalization (TPM, FPKM/RPKM, CPM)
 4. Generate DESeq object
 5. Basic experimental design formula (1 categorical variable (e.g. Treatment) with 2 levels (e.g. Case, Control)).
 6. Vst/rlog normalization for exploratory analysis
