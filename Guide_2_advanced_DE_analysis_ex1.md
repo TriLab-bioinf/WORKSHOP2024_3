@@ -63,7 +63,7 @@ summary(metadata)
 # D. Clean gene expression data
 
 ## 1. Filter genes based on read counts per sample
-In this step we will eliminate genes that have very low expression values. Because we have a minimum of four samples for each Genotype-Treatment combination, we will keep all genes that have 10 reads or more in at least 4 samples.
+In this step we will eliminate genes that have very low expression values. Because we have a minimum of four samples for each `Genotype-Treatment` combination, we will keep all genes that have 10 reads or more in at least 4 samples.
 ```{r}
 # Print out dimension of the counts.raw dataframe 
 dim(counts.raw)
@@ -106,7 +106,7 @@ DESeq2::plotPCA(dds.vst,
 
 # G. Run differential expression
 
-We will contrast *`After`* vs *`Before`* factors of the *`Treatment`* variable, controlling by subject (paired experimental design).
+We will contrast *`After`* vs *`Before`* factors of the *`Treatment`* variable, controlling by subject (paired experimental design), without considering the `Genotype`.
 
 ```{r message=FALSE, warning=FALSE}
 # 1. Add design formula: After vs Before, within subjects
