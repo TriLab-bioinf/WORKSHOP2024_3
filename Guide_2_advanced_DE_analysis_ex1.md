@@ -203,6 +203,7 @@ plotCounts(dds = dds,
                returnData = FALSE,
                col=c("red","blue")[dds@colData$Genotype]) ; legend(x="topleft", legend=c("Geno_1", "Geno_2"),  fill = c("red","blue") ) 
 ```
+![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/q1.png)
 
 **Question 2: What genes are differentially expressed in Genotype `Geno_1`?**
 (Independently of what is going on in Geno_2)
@@ -225,6 +226,7 @@ plotCounts(dds = dds,
                returnData = FALSE,
                col=c("red","blue")[dds@colData$Genotype]) ; legend(x="topleft", legend=c("Geno_1", "Geno_2"),  fill = c("red","blue") )
 ```
+![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/q2.png)
 
 **Question 3: What genes are differentially expressed across Treatment in Genotype `Geno_2`?**
 
@@ -248,3 +250,4 @@ plotCounts(dds = dds,
                returnData = FALSE,
                col=c("red","blue")[dds@colData$Genotype]) ; legend(x="topleft", legend=c("Geno_1", "Geno_2"),  fill = c("red","blue") ) 
 ```
+![](https://github.com/TriLab-bioinf/WORKSHOP2024_3/blob/main/Figures/q3.png)
