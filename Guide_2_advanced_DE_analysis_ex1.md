@@ -52,7 +52,7 @@ metadata
 # 4. Convert categorical variables to factors
 metadata$Genotype <- factor(metadata$Genotype)
 metadata$Sbj_id <- factor(metadata$Sbj_id)
-metadata$Treatment <- factor(metadata$Treatment, levels = c("Before","After"))
+metadata$Treatment <- factor(metadata$Treatment, levels = c("Drug_A","Drug_B"))
 metadata$Sbj_alt <- factor(metadata$Sbj_alt)
 
 # 5. Summarize metadata table
