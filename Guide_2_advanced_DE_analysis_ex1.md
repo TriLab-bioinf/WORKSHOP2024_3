@@ -161,9 +161,9 @@ summary(res.3, alpha=0.05)
 
 # H. Impact of genotype on the gene response to treatment: Interactions
 
-Now the main effect (what we are interested in) is the interaction term (Genotype:Treatment), that has to be at the end of the design formula.
+Now the main effect (what we are interested in) is the interaction term (Genotype:Treatment), that has to be at the end (right) of the design formula.
 
-The second most important effect is the Treatment (Before/After) that will be the X axis, followed by the Genotype and the Subj_id:
+The second most important effect is the Treatment (Before/After) that will be the X axis of the figure below, followed by the Genotype and the Subj_id:
 
 ![Example of a hypothetical gene that is differentially expressed across treatments and that responds differently depending on the genotype.](Figures/Interactions.png)
 
