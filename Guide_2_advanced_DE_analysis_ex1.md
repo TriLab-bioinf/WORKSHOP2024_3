@@ -117,7 +117,18 @@ dds <- DESeq(dds)
 
 # 3. Print out coeficients
 resultsNames(dds)
+```
+`[1] "Intercept"                 "Sbj_id_B_vs_A"             "Sbj_id_C_vs_A"            
+ [4] "Sbj_id_D_vs_A"             "Sbj_id_E_vs_A"             "Sbj_id_G_vs_A"            
+ [7] "Sbj_id_I_vs_A"             "Sbj_id_K_vs_A"             "Sbj_id_L_vs_A"            
+[10] "Sbj_id_N_vs_A"             "Sbj_id_O_vs_A"             "Sbj_id_P_vs_A"            
+[13] "Treatment_After_vs_Before"`
 
+**Treatment_After_vs_Before** = Is the coeficient that compares the two treatments, within subjects, using the level as `Before` as the denominator. We will use this one for our analysis.
+
+**Sbj_id_XXX_vs_YYY** = Are the coeficient that run a comparison between across all possible combinations of two subjects.
+
+```
 # 4. Get DE results ------------------------------------------------
 
 # 4.2 Method 2: Using coeficients
