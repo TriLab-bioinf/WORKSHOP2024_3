@@ -167,7 +167,7 @@ The second most important effect is the Treatment (Before/After) that will be th
 
 ![Example of a hypothetical gene that is differentially expressed across treatments and that responds differently depending on the genotype.](Figures/Interactions.png)
 
-Note the **nested** design:
+Also, note the **nested** experimental design, as depicted in the table below: For this type of designs, DESeq requires that each level of downstream variable has to be represented within each level of the upstream variable. To fulfill this DESeq requirement, Sbj_id levels have to be transformed into Sbj_alt values.
 
 ![Nested design: each level of downstream variable has to be represented within each level of the upstream variable. To fulfill this DESeq requirement, Sbj_id levels have to be transformed into Sbj_alt values.](Figures/Interactions_table.png)
 
@@ -196,22 +196,24 @@ Plot an example of a deferentially expressed gene with a significant interaction
 
 ```{r}
 # Plot an example of interaction
-gene <- "ENSG00000213553"
+gene <- "ENSG00000212802"
 plotCounts(dds = dds, 
                gene = gene,
                intgroup = c("Treatment"), 
                returnData = FALSE,
                col=c("red","blue")[dds@colData$Genotype])
+
+legend(x="topleft", legend=c("Geno_1", "Geno_2"),  fill = c("red","blue") ) 
 ```
 
 **Question 2: What genes are differentially expressed in Genotype `Geno_1`?**
-
+(Independently of what is going on in Geno_2)
 ```{r message=FALSE, warning=FALSE}
 # 1. Print out coeficients
 resultsNames(dds)
 
 # 2. Get DE results for genes are diferentially expressed across Treatments in Genotype Geno_1
-res.geno_1.coef <- lfcShrink(dds, contrast=list("Treatment_After_vs_Before"), type = "ashr")
+res.geno_1 <- lfcShrink(dds, contrast=list("Treatment_After_vs_Before"), type = "ashr")
 
 summary(res.geno_1, alpha=0.05)
 ```
@@ -224,6 +226,8 @@ plotCounts(dds = dds,
                intgroup = c("Treatment"), 
                returnData = FALSE,
                col=c("red","blue")[dds@colData$Genotype])
+
+legend(x="topleft", legend=c("Geno_1", "Geno_2"),  fill = c("red","blue") )
 ```
 
 **Question 3: What genes are differentially expressed across Treatment in Genotype `Geno_2`?**
@@ -247,4 +251,6 @@ plotCounts(dds = dds,
                intgroup = c("Treatment"), 
                returnData = FALSE,
                col=c("red","blue")[dds@colData$Genotype])
+
+legend(x="topleft", legend=c("Geno_1", "Geno_2"),  fill = c("red","blue") ) 
 ```
