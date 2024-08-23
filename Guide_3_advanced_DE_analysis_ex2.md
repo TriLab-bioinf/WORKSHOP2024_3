@@ -9,7 +9,7 @@ In Rstudio go to `File > Open File` and select the file `Guide_3.Rmd`.
 
 # Experimental design:
 
-![Experimental design.](Figures/Long_study.png){width="500"}
+![Experimental design.](Figures/Long_study.png)
 
 # A. Load libraries
 
