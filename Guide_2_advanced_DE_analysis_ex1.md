@@ -171,6 +171,7 @@ Also, note the **nested** experimental design, as depicted in the table below: F
 
 ![Nested design: each level of downstream variable has to be represented within each level of the upstream variable. To fulfill this DESeq requirement, Sbj_id levels have to be transformed into Sbj_alt values.](Figures/Interactions_table.png)
 
+**Question 1: What genes respond differently to the treatment, depending on the genotype?**
 ```{r}
 # 1. Add design formula: After vs Before, within subjects
 #   Now the main effect is the interaction term (Genotype:Treatment) 
