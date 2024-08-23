@@ -106,7 +106,7 @@ DESeq2::plotPCA(dds.vst,
 
 # G. Run differential expression
 
-We will contrast *`After`* vs *`Before`* factors of the *`Treatment`* variable, controlling by subject (paired experimental design), without considering the `Genotype`.
+We will contrast *`After`* vs *`Before`* factors of the *`Treatment`* variable, controlling by subject (paired experimental design), without considering the `Genotype`. When building the design formula, always the main contrasting factor goes on the right, while controlling factors go on the left of the formula. 
 
 ```{r message=FALSE, warning=FALSE}
 # 1. Add design formula: After vs Before, within subjects
