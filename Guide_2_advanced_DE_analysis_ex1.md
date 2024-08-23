@@ -16,7 +16,10 @@ In Rstudio go to `File > Open File` and select the file `Guide_2.Rmd`.
 Load required R packages
 
 ```{r Step_1, message=FALSE, warning=FALSE}
+# Install pacman package
+renv::install("pacman")
 
+# Install and load other required R packages
 pacman::p_load(BiocManager, DESeq2, readxl, tidyverse, pheatmap, ashr)
 ```
 
