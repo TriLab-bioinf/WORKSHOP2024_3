@@ -94,6 +94,7 @@ dds <- DESeq(dds)
 # 1. variance stabilizing transformation of counts (optinally you can use log transformation with rlog)
 dds.vst <- vst(dds, blind=TRUE)
 
+# 2. Generate PCA plot
 DESeq2::plotPCA(dds.vst, 
               intgroup = c("Treatment"),
               ntop = 500,
