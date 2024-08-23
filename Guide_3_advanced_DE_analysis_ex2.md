@@ -123,7 +123,7 @@ pca.p
 
 We will analyze the impact of Drug A and B overtime. There are two possible approaches:
 
-A.  A pairwise comparisons between each time point and the baseline (M0). A kind of two-sample t-test comparisons.
+A.  A pairwise comparisons between each time point and the baseline (M0). A kind of two-sample t-test comparison, named Wald-test, that is used by DESeq2.
 
 B.  A Likelihood Radio Test approach (LRT), where you look at genes that are differentially expressed in at least one time point. A kind of anova test.
 
